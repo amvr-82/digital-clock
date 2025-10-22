@@ -1,14 +1,14 @@
- function updateClock() {
-        const now = new Date();
-        let hours = now.getHours().toString().padStart(2, "0");
-        let minutes = now.getMinutes().toString().padStart(2, "0");
-        let seconds = now.getSeconds().toString().padStart(2, "0");
+const Hourselem = document.getElementById("hours");
+const Minuteselem = document.getElementById("minutes");
+const Secondelem = document.getElementById("second");
 
-        document.getElementById(
-          "clock"
-        ).textContent = `${hours}:${minutes}:${seconds}`;
-      }
+setInterval(() => {
+  const date = new Date();
+  const hou = date.getHours();
+  const min = date.getMinutes();
+  const sec = date.getSeconds();
 
-      setInterval(updateClock, 1000);
-      updateClock(); // نمایش فوری بدون انتظار 1 ثانیه
-    </script>
+  Hourselem.innerHTML = String(hou).padStart(2, "0");
+  Minuteselem.innerHTML = String(min).padStart(2, "0");
+  Secondelem.innerHTML = String(sec).padStart(2, "0");
+}, 1000);
